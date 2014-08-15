@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>My AngularJS App</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.min.css">
+
+</head>
+<body ng-controller="startController">
+
+
+	<ul class="menu">
+	<li><a ui-sref="view1" ui-sref-active="active" >view1</a></li>
+	<li><a ui-sref="view2" ui-sref-active="active">view2</a></li>
+	</ul>
+
+	<my-signin></my-signin>
+<div class="container-fluid" >
+
+
+	<section ng-show="user.token">
+		<ui-view></ui-view>
+	</section>
+</div>
+
+
+<br/>
+	 token = {{user.token}}
+	 name = {{user.name}}
+	 pass = {{user.pass}}
+
+
+
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular-ui-router.min.js"></script>
+	<script src="lib/angular/angular-cookies.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+	<script src="js/scripts.min.js"></script>
+
+</body></html>
+</body>
+</html>
