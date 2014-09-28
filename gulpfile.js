@@ -7,25 +7,14 @@ var minifyHTML = require('gulp-minify-html');
 
 var buildPath = 'build/';
 
-/* Cleaning up the old mess first */
-gulp.task('clean', function () {
-	return gulp.src(buildPath + '*', { read: false })
-	.pipe($.rimraf());
-
-});
-
 /* concat , uglify */
 gulp.task('scripts', function() {
-
 	gulp.src(['app/js/*.js' ,'!app/js/*.min.js'])
 	.pipe($.concat('scripts.min.js'))
 	.pipe($.uglify())
 	.pipe(gulp.dest(buildPath + 'js'))
 	.on('error', $.util.log);
-/*
-	gulp.src('app/js/*')
-	.pipe(gulp.dest(buildPath + 'js'));
-*/
+
 });
 
 /* sass */
@@ -48,18 +37,13 @@ gulp.task('styles', function() {
 gulp.task('minify-html', function() {
 	var opts = {comments:true,spare:true};
 	gulp.src('app/*.html')
-	.pipe($.changed(buildPath))
 	.pipe(minifyHTML(opts))
 	.pipe(gulp.dest(buildPath));
 
 	gulp.src('app/partials/*.html')
-	.pipe($.changed(buildPath))
 	.pipe(minifyHTML(opts))
 	.pipe(gulp.dest(buildPath + 'partials'));
-
 });
-
-
 
 /* minify images */
 gulp.task('images', function () {
@@ -75,7 +59,7 @@ gulp.task('lib' , function (){
 });
 
 gulp.task('default',
-	['scripts', 'sass','styles','minify-html','images' ,'lib'], function() {
+	['minify-html','sass','lib','scripts','styles','images'], function() {
 });
 
 gulp.task('watch', function () {
@@ -85,4 +69,3 @@ gulp.task('watch', function () {
 	gulp.watch(['app/js/**/*.js'], ['scripts']);
 	gulp.watch(['app/img/**/*'], ['images']);
 });
-

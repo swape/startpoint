@@ -3,10 +3,10 @@
 
 angular.module('myApp.services', [])
 .service('UserService',['$cookieStore' , function($cookieStore){
-	var user = {'token':'','userfullname':''};
-
-	user.token = $cookieStore.get('token');
+	var user = {'token':'','userfullname':'','uid':''};
+	user.token = (typeof $cookieStore.get('token') !== 'undefined') ? $cookieStore.get('token') : '';
 	user.userfullname = $cookieStore.get('userfullname');
+	user.uid = $cookieStore.get('uid');
 
 	this.setToken = function(myToken){
 		user.token = myToken;
@@ -18,27 +18,36 @@ angular.module('myApp.services', [])
 		$cookieStore.put('userfullname',myToken);
 	};
 
+	this.setUid = function(uid){
+		user.uid = uid;
+		$cookieStore.put('uid',uid);
+	};
+
+	this.getUid = function (){
+		return user.uid;
+	};
+
 	this.getUser = function (){
 		return user;
 	};
 
+	this.getToken = function (){
+		return user.token;
+	};
+
 	this.logout = function(){
 		$cookieStore.remove('token');
+		user.token = '';
+		user.userfullname = '';
 	};
 }])
-// eks.:
-// TransferService.get('post' , objData).success(handleSuccessFunction);
 .factory('TransferService',['$http',function($http){
 	return {
-		get: function(method,objData) {
-			if(method === 'get'){
-				return $http.get('/api/?data=' + angular.toJson(objData) );
-			}else if(method === 'post'){
-				return $http.post('/api',objData);
-			}else{
-				console.log('post or get');
-			}
-
+		get: function(objData) {
+			return $http.get('/api/?data=' + angular.toJson(objData));
+		},
+		post:function(objData) {
+			return $http.post('/api/',objData);
 		}
 	};
 }])

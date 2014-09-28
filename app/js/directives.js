@@ -21,5 +21,4 @@ angular.module('myApp.directives', [])
 		templateUrl: mainpath + 'partials/signin.html'
 	}
 })
-
 ;
