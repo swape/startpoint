@@ -1,0 +1,6 @@
+{
+	"directory": "app/libs/",
+	"analytics": false,
+	"timeout": 120000,
+	"color": true
+}

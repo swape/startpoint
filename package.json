@@ -1,27 +1,23 @@
 {
-	"devDependencies": {
-	"gulp": "",
-	"gulp-jshint": "",
-	"gulp-load-plugins": "",
-	"gulp-uglify": "",
-	"gulp-replace": "",
-	"gulp-util": "",
-	"gulp-concat": "",
-	"gulp-autoprefixer": "",
-	"gulp-minify-css": "",
-	"gulp-ignore": "",
-	"gulp-minify-html": "",
-	"gulp-imagemin": "",
-	"gulp-sass": ""
-	},
-	"engines": {
-	"node": ">=0.10.0"
-	},
-	"description" : "web app build with angular using gulp.js",
-
-	"repository" : {
-		"type": "git",
-		"url": "https://github.com/swape/startpoint"
-	},
-	"author": "Alireza Balouch"
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "description": "web app build with angular using gulp.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swape/startpoint"
+  },
+  "author": "Alireza Balouch",
+  "dependencies": {
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-changed": "^1.1.0",
+    "gulp-concat": "^2.4.2",
+    "gulp-csso": "^0.2.9",
+    "gulp-htmlmin": "^0.2.0",
+    "gulp-imagemin": "^2.0.0",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-uglify": "^1.0.2",
+    "gulp-util": "^3.0.1"
+  }
 }

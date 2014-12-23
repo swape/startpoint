@@ -6,10 +6,8 @@ angular.module('myApp', [
 	'myApp.filters',
 	'myApp.services',
 	'myApp.directives',
-	'myApp.controllers',
-	'ngCookies',
-	'ui.bootstrap'
-]).config(['$stateProvider' , '$urlRouterProvider' , function($stateProvider, $urlRouterProvider) {
+	'myApp.controllers'
+]).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/view1");
 
 	$stateProvider.state('view1', {
@@ -18,7 +16,6 @@ angular.module('myApp', [
 	})
 	.state('view2', {
 		url: "/view2",
-		templateUrl: mainpath + "partials/partial2.html"
+		templateUrl: mainpath + "partials/partial1.html"
 	});
-}])
-;
+}]);

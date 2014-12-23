@@ -6,19 +6,15 @@ web app build with angular using gulp.js
 
 ##Install
 
-You have to have node and brew installed 
-
-- install node w. npm
-- install brew
-
+You have to have node and brew installed
 
 ##Run
 
 Go to the unpacked directory and run:
 
 	brew install libpng
-	sudo npm install --global gulp
 	sudo npm install
+	bower install
 	gulp
 
 

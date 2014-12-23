@@ -1,6 +1,5 @@
 /* Directives */
 
-
 angular.module('myApp.directives', [])
 .directive('a', function() {
 	return {
@@ -14,11 +13,4 @@ angular.module('myApp.directives', [])
 		}
 	};
 
-}).directive('mySignin',function(){
-	return {
-		restrict: 'E',
-		controller: 'mySigninController',
-		templateUrl: mainpath + 'partials/signin.html'
-	}
-})
-;
+});
