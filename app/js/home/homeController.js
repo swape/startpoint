@@ -8,7 +8,7 @@
   HomeController.$inject = ['$scope'];
 
   function HomeController($scope) {
-
+    $scope.someValue = 'Hello World';
 
   }
 })();
