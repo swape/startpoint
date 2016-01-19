@@ -11,11 +11,15 @@
     $routeProvider
       .when('/', {
         templateUrl: 'js/home/homeTemplate.html',
-        title: 'Home'
+        title: 'Home',
+        controller: 'HomeController',
+        controllerAs: 'vm'
       })
       .when('/settings', {
         templateUrl: 'js/settings/settingsTemplate.html',
-        title: 'Settings'
+        title: 'Settings',
+        controller: 'SettingsController',
+        controllerAs: 'vm'
       })
       .otherwise({
         redirectTo: '/'

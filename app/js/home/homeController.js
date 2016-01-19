@@ -8,7 +8,8 @@
   HomeController.$inject = ['$scope'];
 
   function HomeController($scope) {
-    $scope.someValue = 'Hello World';
+    var vm = this;
+    vm.someValue = 'Hello World';
 
   }
 })();

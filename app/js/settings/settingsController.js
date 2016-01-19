@@ -8,9 +8,12 @@
   SettingsController.$inject = ['$scope'];
 
   function SettingsController($scope) {
+    var vm = this;
+    vm.someValue = 'something';
 
-    function save() {
-
-    }
+    vm.save = function () {
+      console.log('do something here', vm.user);
+    };
   }
+
 })();

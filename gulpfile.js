@@ -1,15 +1,14 @@
 'use strict';
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
-var buildPath = 'build/';
+const buildPath = 'build/';
 
 /* concat, uglify */
 gulp.task('scripts', function () {
-  gulp.src(['app/js/**/*.js', '!app/js/**/*.min.js'])
-    .pipe($.concat('scripts.min.js'))
-    .pipe($.uglify())
+  return gulp.src(['app/js/**/*.js'])
+    .pipe($.uglifyjs('scripts.min.js'))
     .pipe(gulp.dest(buildPath + 'js'))
     .on('error', $.util.log);
 });
@@ -53,7 +52,9 @@ gulp.task('libs', function () {
     .pipe(gulp.dest(buildPath + 'libs'));
 });
 
-gulp.task('default', ['minify-html', 'libs', 'scripts', 'styles', 'images'], function () {});
+gulp.task('all', ['minify-html', 'libs', 'scripts', 'styles', 'images'], function () {});
+
+gulp.task('default', ['all', 'watch'], function () {});
 
 gulp.task('watch', function () {
   gulp.watch(['app/**/*.html'], ['minify-html']);
